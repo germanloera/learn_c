@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "student.h"
 
 #ifndef UTILS
 #define UTILS
@@ -14,5 +15,6 @@
 #define AC_NORMAL "\x1b[m"
 
 void p(char text[100], char color[10]);
+void ps(struct Student *current);
 
 #endif

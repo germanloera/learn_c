@@ -1,8 +1,11 @@
 #include "utils.h"
 #include <stdio.h>
-#include "student.h"
+#include "menu.h"
+
 
 int main() {
+
+  printf("\e[1;1H\e[2J");
 
   p("Sistema de Gestión de Estudiantes Avanzado \n", AC_BLUE);
   char option;
@@ -42,6 +45,7 @@ int main() {
       break;
     }
     case 's': {
+      release();
       return 0;
     }
     }

@@ -1,30 +1,28 @@
 #include <stdio.h>
 
-#ifndef STUDENT_H
-#define STUDENT_H
+#ifndef STUDENT
+#define STUDENT
 
 typedef enum { PRE, POST } StudentType;
 
 struct Student {
   int id;
-  char *name;
+  char name[10];
   StudentType type;
-  union {
-    char *degree;
-    char* thesis;
+  union level {
+    char degree[10];
+    char thesis[10];
   } data;
 
-  struct Student* next;
+  struct Student *next;
 };
 
 extern struct Student *root;
 extern struct Student *last;
 
-void add();
-void list();
-void find();
-void save();
-void load();
+
+
+void createStudent(StudentType type);
 
 #endif
 
