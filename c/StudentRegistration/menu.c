@@ -1,3 +1,5 @@
+
+#include "fileHandler.h"
 #include "list.h"
 #include "student.h"
 #include "utils.h"
@@ -39,17 +41,21 @@ void find() {
   struct Student *element = findElement(id);
 
   if (element == NULL) {
-    p("Elemento no encontrado", AC_RED);
+    p("Elemento no encontrado 6", AC_RED);
   } else {
 
     ps(element);
   }
 }
 
-void save() {}
+void save() { saveRegistrationStudents(root); }
 
-void load() {}
+void load() { readFullFile(); }
 
-void release() {
-  releaseMemory();
+void release() { releaseMemory(); }
+
+void dummy() { createDummyStudents(); }
+
+void deletef() {
+  deleteFile();
 }

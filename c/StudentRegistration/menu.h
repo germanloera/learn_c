@@ -9,6 +9,8 @@ void find();
 void save();
 void load();
 void release();
+void dummy();
 
+void deletef();
 
 #endif

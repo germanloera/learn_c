@@ -1,7 +1,7 @@
+#include "fileHandler.h"
+#include "menu.h"
 #include "utils.h"
 #include <stdio.h>
-#include "menu.h"
-
 
 int main() {
 
@@ -9,39 +9,56 @@ int main() {
 
   p("Sistema de Gestión de Estudiantes Avanzado \n", AC_BLUE);
   char option;
+  readFullFile();
 
   do {
 
     p("Menu \n", AC_GREEN);
 
-    p("\t (a) Agregar", AC_YELLOW);
-    p("\t (l) Listar", AC_YELLOW);
-    p("\t (b) Buscar", AC_YELLOW);
-    p("\t (g) Guardar", AC_YELLOW);
-    p("\t (c) Cargar", AC_YELLOW);
+    p("\t (1) Agregar", AC_YELLOW);
+    p("\t (2) Listar", AC_YELLOW);
+    p("\t (3) Buscar", AC_YELLOW);
+    p("\t (4) Guardar", AC_YELLOW);
+    p("\t (5) Cargar", AC_YELLOW);
+    p("\t (6) Dummy \n", AC_YELLOW);
+    p("\t (7) Borrar Archivo \n", AC_YELLOW);
+
     p("\t (s) Salir\n", AC_YELLOW);
     p("Opcion: ", AC_GREEN);
     scanf(" %c", &option);
 
     switch (option) {
-    case 'a': {
+    case '1': {
       add();
       break;
     }
-    case 'l': {
+    case '2': {
       list();
       break;
     }
-    case 'b': {
+    case '3': {
       find();
       break;
     }
-    case 'g': {
+    case '4': {
       save();
       break;
     }
-    case 'c': {
+    case '5': {
       load();
+      break;
+    }
+
+    case '6': {
+      release();
+      dummy();
+      save();
+      break;
+    }
+
+    case '7': {
+      release();
+      deleteFile();
       break;
     }
     case 's': {

@@ -17,7 +17,6 @@ void addElementToList(struct Student *newItem) {
     last = last->next;
   }
 
-  printAll();
 }
 
 struct Student *findElement(int id) {

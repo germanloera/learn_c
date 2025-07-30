@@ -23,6 +23,7 @@ extern struct Student *last;
 
 
 void createStudent(StudentType type);
+void createDummyStudents();
 
 #endif
 
