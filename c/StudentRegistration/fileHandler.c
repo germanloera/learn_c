@@ -75,7 +75,9 @@ void readFullFile() {
     }
 
     ps(s);
-    addElementToList(s);
+    if (id > 0) {
+      addElementToList(s);
+    }
   }
 
   fclose(file);
@@ -102,13 +104,12 @@ int readString(FILE *file, char *text) {
   if (size > 0) {
 
     result = fread(value, sizeof(char), size, file);
-  
+
     if (result < 1) {
       p("unable to read string value 5", AC_RED);
     }
 
-    snprintf(text, sizeof(char) * (size+1), "%s", value);
-
+    snprintf(text, sizeof(char) * (size + 1), "%s", value);
   }
 
   return result;
@@ -117,7 +118,7 @@ int readString(FILE *file, char *text) {
 void writestr(FILE *file, char *value) {
   int size = strlen(value);
   writeint(file, size);
-  fwrite(value, sizeof(char), size , file);
+  fwrite(value, sizeof(char), size, file);
 }
 
 void writeint(FILE *file, int value) { fwrite(&value, sizeof(int), 1, file); }
