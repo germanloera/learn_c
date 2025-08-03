@@ -1,0 +1,29 @@
+El Proyecto: Sistema de Gestión de Estudiantes Avanzado
+
+Vas a construir un programa de consola para gestionar una base de datos de estudiantes. 
+El sistema debe ser capaz de manejar dos tipos diferentes de estudiantes: 
+Estudiantes de Pregrado y Estudiantes de Posgrado.
+
+Requisitos Funcionales:
+
+   * Añadir Estudiante: El programa debe permitir añadir estudiantes. Al añadir, 
+     debe preguntar si es de Pregrado o Posgrado.
+        * Todos los estudiantes tienen un ID único (entero) y un nombre.
+        * Los estudiantes de Pregrado tienen un campo adicional: Carrera (ej: "Ingeniería de Software").
+        * Los estudiantes de Posgrado tienen un campo adicional: Tema de Tesis (ej: "IA Cuántica").
+    * Listar Todos los Estudiantes: Mostrar una lista de todos los estudiantes en la base de datos, 
+        mostrando todos sus detalles específicos. El formato debe ser claro y distinguir entre tipos de estudiante.
+    * Buscar Estudiante: Permitir al usuario buscar un estudiante por su ID y mostrar su información si se encuentra.
+    * Guardar en Archivo: Guardar el estado actual de la base de datos (todos los estudiantes) en un archivo de texto llamado database.txt.
+    * Cargar desde Archivo: Al iniciar, el programa debe intentar cargar los datos desde database.txt si existe.
+    * Salir: El programa debe liberar toda la memoria dinámica que haya asignado antes de terminar.
+
+Estructura del Proyecto (Modularización):
+
+Deberás organizar tu código en múltiples archivos:
+
+    main.c / main.cpp: Contendrá la función main y el bucle principal del menú de usuario.
+    student.h: Declaraciones de las estructuras/clases de los estudiantes.
+    student.c / student.cpp: Implementación de las funciones/métodos relacionados con los estudiantes.
+    database.h: Declaraciones de las funciones para gestionar la colección de estudiantes (añadir, buscar, guardar, cargar).
+    database.c / database.cpp: Implementación de la lógica de la base de datos.
