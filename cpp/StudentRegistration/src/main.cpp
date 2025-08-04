@@ -29,7 +29,7 @@ int main() {
     ImGui::NewFrame();
 
     ImGui::SetNextWindowPos(ImVec2(10, 10), ImGuiCond_Once);
-    ImGui::SetNextWindowSize(ImVec2(200, 100), ImGuiCond_FirstUseEver);
+    ImGui::SetNextWindowSize(ImVec2(100, 50), ImGuiCond_FirstUseEver);
     // Ventana principal
     if (ImGui::Begin("Add Student", &programRunning)) {
       ImGui::Text("¡ImTui funciona correctamente!");
