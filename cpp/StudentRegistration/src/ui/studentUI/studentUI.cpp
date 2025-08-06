@@ -106,10 +106,10 @@ void StudentFrame::studentListTable() {
 
 void StudentFrame::controlsGroup() {
 
-  int width = 10;
+  int width = 16;
   int height = 1;
 
-  if (ImGui::BeginChild("Buttons", ImVec2(60, 1), true)) {
+  if (ImGui::BeginChild("Buttons", ImVec2(70, 1), true)) {
 
     if (ImGui::Button("Guardar Archivo", ImVec2(width, height))) {
       h->saveAllStudents();

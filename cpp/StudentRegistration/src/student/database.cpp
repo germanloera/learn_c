@@ -109,7 +109,9 @@ void Handler::readFile() {
 
   while (!file.eof()) {
     Student *s = loadStudent(file);
-    addStudent(s);
+    if (s->id > -1) {
+      addStudent(s);
+    }
   };
 
   file.close();
@@ -122,9 +124,6 @@ Student *Handler::loadStudent(ifstream &file) {
   string data = readStr(file);
   CareerType t = CareerType::PRE;
 
-  cout << "id: " << id << ", name: " << name << ", type: " << type
-       << ", data: " << data << endl;
-
   if (type == 1) {
     t = CareerType::POST;
   }
@@ -135,9 +134,8 @@ Student *Handler::loadStudent(ifstream &file) {
 }
 
 int Handler::readInt(ifstream &file) {
-  int value;
+  int value = -1;
   if (file.is_open()) {
-
     file.read(reinterpret_cast<char *>(&value), sizeof(value));
   } else {
     cerr << "readInt: Error abriendo el archivo 5" << endl;
@@ -151,14 +149,15 @@ string Handler::readStr(ifstream &file) {
 
     int longitud = readInt(file);
     // Crear buffer para el string
-    char *buffer = new char[longitud ];
-    file.read(buffer, longitud);
-    buffer[longitud] = '\0'; // Terminar string
-    std::string texto(buffer);
-    delete[] buffer;
+    if (longitud > 0) {
 
-    return texto;
-
+      char *buffer = new char[longitud];
+      file.read(buffer, longitud);
+      buffer[longitud] = '\0'; // Terminar string
+      std::string texto(buffer);
+      delete[] buffer;
+      return texto;
+    }
   } else {
     cerr << "readInt: Error abriendo el archivo 5" << endl;
   }
