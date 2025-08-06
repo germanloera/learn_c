@@ -5,7 +5,7 @@ mkdir -p build
 cd build
 
 # Configurar con cmake
-cmake ..
+cmake --debugger ..
 
 # Compilar
 make -j$(nproc)

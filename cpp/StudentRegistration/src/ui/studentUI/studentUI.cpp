@@ -1,11 +1,11 @@
 #include "studentUI.h"
+#include "../../student/database.h"
 #include "../../student/student.h"
 #include "../utils/frameVisibility.h"
 #include "imgui/imgui.h"
 #include "imtui/imtui-impl-ncurses.h"
 #include <cstddef>
 #include <string>
-#include "../../student/database.h"
 
 using namespace std;
 
@@ -39,7 +39,6 @@ void StudentFrame::addStudentFrame() {
     }
     Student *s = new Student(numero_entero, texto1, type, texto2);
     h->addStudent(s);
-    
   }
 
   ImGui::EndChild();
@@ -54,10 +53,14 @@ void StudentFrame::studentListTable() {
 
         // Encabezados
         ImGui::TableSetupColumn("Id", ImGuiTableColumnFlags_WidthFixed, 10.0f);
-        ImGui::TableSetupColumn("Nombre", ImGuiTableColumnFlags_WidthFixed, 10.0f);
-        ImGui::TableSetupColumn("Tipo", ImGuiTableColumnFlags_WidthFixed, 10.0f);
-        ImGui::TableSetupColumn("Carrera", ImGuiTableColumnFlags_WidthFixed, 10.0f);
-        ImGui::TableSetupColumn("Tesis", ImGuiTableColumnFlags_WidthFixed, 10.0f);
+        ImGui::TableSetupColumn("Nombre", ImGuiTableColumnFlags_WidthFixed,
+                                10.0f);
+        ImGui::TableSetupColumn("Tipo", ImGuiTableColumnFlags_WidthFixed,
+                                10.0f);
+        ImGui::TableSetupColumn("Carrera", ImGuiTableColumnFlags_WidthFixed,
+                                10.0f);
+        ImGui::TableSetupColumn("Tesis", ImGuiTableColumnFlags_WidthFixed,
+                                10.0f);
         ImGui::TableHeadersRow();
 
         // Filas de datos
@@ -109,19 +112,19 @@ void StudentFrame::controlsGroup() {
   if (ImGui::BeginChild("Buttons", ImVec2(60, 1), true)) {
 
     if (ImGui::Button("Guardar Archivo", ImVec2(width, height))) {
-     
+      h->saveAllStudents();
     }
 
     ImGui::SameLine();
 
     if (ImGui::Button("Cargar Archivo", ImVec2(width, height))) {
- 
+      h->readFile();
     }
 
     ImGui::SameLine();
 
     if (ImGui::Button("Dummy", ImVec2(width, height))) {
-   
+      h->dummy();
     }
 
     ImGui::SameLine();
